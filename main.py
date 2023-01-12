@@ -55,7 +55,7 @@ def query():
                 f"https://www.bing.com/search?q={query}&PC=U316&FORM=CHROMN?first={i * 8}",
                 response_str
             )
-            
+
         # // Insert response string into cache
         cache.insert(query, response_str)
 
@@ -69,6 +69,7 @@ def query():
 
     # // Return the response string
     return get_new_query()
+
 
 
 # // Run the flask app

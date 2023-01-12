@@ -14,11 +14,8 @@ def scrape_page(url: str, curr_resp_str: str) -> str:
     # // Declare an empty response string
     response_str: str = ""
 
-    # // Find all the containers
-    containers = soup.find_all('li', class_='b_algo')
-
-    # // Loop through the containers
-    for i in containers:
+    # // Loop through the scrape results
+    for i in soup.find_all('li', class_='b_algo'):
 
         # // Find the header and check if it is not None
         header = i.div.h2
