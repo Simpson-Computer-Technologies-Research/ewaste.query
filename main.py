@@ -1,6 +1,6 @@
 # /////////////////////////////////////////////////////////////////////////
 # //                                                                     //
-# //                                                                     //                                                              //
+# //                                                                     // 
 # //    Author: Tristan Simpson                                          //
 # //                                                                     //     
 # //    About: Custom Search Engine for finding e-waste information      //
