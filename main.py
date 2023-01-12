@@ -9,7 +9,7 @@
 # /////////////////////////////////////////////////////////////////////////
 
 # // Import the required modules
-from flask import Flask
+from flask import Flask, request
 import scraper
 
 # // Initialize the flask app
@@ -20,24 +20,37 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # // Main route
 @app.route("/")
 def main():
-    return ("""
-    <div style="margin: 50px;">
-        <h2>Welcome to Tristan's E-Waste Search Engine!</h2>
-        
-        <p>To search, go to <strong>/query/{your query here}</strong></p>
-        <p>Example: <a href="/query/ewaste">/query/ewaste</a></p>
-    </div>
-    """)
+    response_str: str = """
+        <div style="margin: 20px;">
+            <h1>Tristan's Search Engine</h1>
+            <p>Welcome to Tristan's e-waste search engine. Input what you want to search for below.</p>
+            <form action="search">
+                <input type="text" name="q" placeholder="Search here" required>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    """
+    response_str += open("initial_query.txt", "r").read()
+    return response_str
+
 
 # // Search route
-@app.route("/query/<query>")
-def query(query: str):
+@app.route("/search")
+def query():
+    # // Get the query from the request args
+    query = request.args["q"]
+
     # // Declare header response string
     response_str = (
         """
-        <h1 style="margin-top: 10px; margin-left: 10px;">
-            Tristan's E-Waste Search Engine
-        </h1>
+        <div style="margin: 20px;">
+            <h1>Tristan's Search Engine</h1>
+            <p>Welcome to Tristan's e-waste search engine. Input what you want to search for below.</p>
+            <form action="search">
+                <input type="text" name="q" placeholder="Search here" required>
+                <input type="submit" value="Search">
+            </form>
+        </div>
         """
     )
 
@@ -47,6 +60,7 @@ def query(query: str):
             f"https://www.bing.com/search?q={query}&PC=U316&FORM=CHROMN?first={i * 8}",
             response_str
         )
+    open("initial_query.txt", "w").write(response_str)
 
     # // Return the response string
     return response_str
