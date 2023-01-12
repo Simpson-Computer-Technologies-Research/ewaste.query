@@ -30,7 +30,7 @@ def main():
             </form>
         </div>
     """
-    response_str += open("initial_query.txt", "r").read()
+    response_str += open("initial_query.html", "r").read()
     return response_str
 
 
@@ -60,7 +60,6 @@ def query():
             f"https://www.bing.com/search?q={query}&PC=U316&FORM=CHROMN?first={i * 8}",
             response_str
         )
-    open("initial_query.txt", "w").write(response_str)
 
     # // Return the response string
     return response_str
