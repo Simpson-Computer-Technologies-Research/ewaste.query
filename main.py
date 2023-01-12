@@ -73,5 +73,5 @@ def query():
 
 
 # // Run the flask app
-if __name__ == "__main__":
-    app.run()
+#if __name__ == "__main__":
+#    app.run()
