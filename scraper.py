@@ -16,37 +16,39 @@ def scrape_page(url: str, curr_resp_str: str) -> str:
 
     # // Loop through the scrape results
     for i in soup.find_all('li', class_='b_algo'):
+        # // Check if the result is none
+        if i is None:
+            continue
 
-        # // Find the header and check if it is not None
+        # // Verify the result has a div and paragraph
+        if i.p is None or i.div is None:
+            continue
+
+        # // Verify the result div has a header
         header = i.div.h2
         if header is None:
             continue
             
-        # // Verify that header has href attribute
+        # // Verify that the header has a url
         if header.a is None:
-            continue
-
-        # // Verify that header has a paragraph
-        if i.p is None:
             continue
 
         # // No duplicate searches!
         if header.text not in curr_resp_str:
-
             # // Add scrape data to the response string
             response_str += (
                 f"""
                 <div style=\"margin-right: 50vw; margin-left: 20px;\">
-                <a style=\"font-size: 20px;\" href=\"{header.a['href']}\">
-                    {header.text}
-                </a>
-                <br>
-                <mark style=\"color: green; background: none;\">
-                    {i.a['href']}
-                </mark>
-                <br>
-                {i.p.text}
-                <br><br>
+                    <a style=\"font-size: 20px;\" href=\"{header.a['href']}\">
+                        {header.text}
+                    </a>
+                    <br>
+                    <mark style=\"color: green; background: none;\">
+                        {i.a['href']}
+                    </mark>
+                    <br>
+                    {i.p.text}
+                    <br><br>
                 </div>
                 """
             )
