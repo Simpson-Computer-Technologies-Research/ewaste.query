@@ -3,10 +3,10 @@
 
 ewaste.query is a small custom search engine for finding information about e-waste
 
-## Replit
+# Replit
 https://replit.com/@realTristan/ewastequery#main.py
 
-## Preview
+# Preview
 <img width="642" alt="Screen Shot 2023-01-12 at 5 04 35 PM" src="https://user-images.githubusercontent.com/75189508/212191114-91835021-2e13-4f7a-81d7-342bd23c7658.png">
 
 # License
