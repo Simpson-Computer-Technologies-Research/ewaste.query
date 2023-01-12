@@ -25,7 +25,8 @@ cache = Cache()
 response_header = ("""
     <div style="margin: 20px;">
         <h1>Tristan's Search Engine</h1>
-        <p>Welcome to Tristan's e-waste search engine. Input what you want to search for below.</p>
+        <p>Welcome to Tristan's e-waste search engine. Input what you want to search for below.<br>Example: "How to recycle e-waste"</p>
+        <p>Source code can be found <a href="https://github.com/realTristan/ewaste.query/">here</a></p>
         <form action="search">
             <input type="text" name="q" placeholder="Search here" required>
             <input type="submit" value="Search">
