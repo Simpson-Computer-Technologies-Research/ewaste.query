@@ -8,11 +8,11 @@
     ],
     "routes": [
         {
-            "src": "/",
+            "src": "/(.*)",
             "dest": "/"
         },
         {
-            "src": "/query",
+            "src": "/query/(.*)",
             "dest": "/query"
         }
     ]
