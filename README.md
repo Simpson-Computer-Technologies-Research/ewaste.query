@@ -1,7 +1,7 @@
 # ewaste.query
 ![ewaste](https://user-images.githubusercontent.com/75189508/212191366-b2c5e17d-b229-488e-8047-698dfb5b3521.png)
 
-ewaste.query is a small custom search engine for finding information about e-waste
+ewaste.query is a mini search engine made with flask and bs4
 
 # Replit
 https://replit.com/@realTristan/ewastequery#main.py
