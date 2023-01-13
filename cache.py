@@ -12,8 +12,9 @@ class Cache:
             self.data[key] = value
         
         # // Overflow handling
-        if len(self.data) > 10:
-            del self.data[len(self.data) - 1]
+        if len(self.data) >= 10:
+            keys: list = list(self.data)
+            del self.data[keys[len(keys) - 1]]
     
     # // Cache a value from the cache
     def get(self, key: str) -> str:
