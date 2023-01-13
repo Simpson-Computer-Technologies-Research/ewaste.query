@@ -13,7 +13,7 @@ class Cache:
         
         # // Overflow handling
         if len(self.data) >= 10:
-            keys: list = list(self.data)
+            keys: list[str] = list(self.data)
             del self.data[keys[len(keys) - 1]]
     
     # // Cache a value from the cache
