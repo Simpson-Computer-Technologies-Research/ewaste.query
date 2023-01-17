@@ -1,4 +1,4 @@
-import requests, bs4
+import requests, bs4, html
 
 # // Scrape data from the provided url
 def scrape_page(url: str, curr_resp_str: str) -> str:
@@ -35,22 +35,10 @@ def scrape_page(url: str, curr_resp_str: str) -> str:
 
         # // No duplicate searches!
         if header.text not in curr_resp_str:
-            # // Add scrape data to the response string
-            response_str += (
-                f"""
-                <div style=\"margin-right: 50vw; margin-left: 20px;\">
-                    <a style=\"font-size: 20px;\" href=\"{header.a['href']}\">
-                        {header.text}
-                    </a>
-                    <br>
-                    <mark style=\"color: green; background: none;\">
-                        {i.a['href']}
-                    </mark>
-                    <br>
-                    {i.p.text}
-                    <br><br>
-                </div>
-                """
+            response_str += html.wrap(
+                header.text,
+                i.p.text,
+                header.a['href']
             )
 
     # // Return the response string

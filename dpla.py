@@ -1,4 +1,4 @@
-import requests
+import requests, html
 
 def query(query: str):
     # // Put your API key here
@@ -30,20 +30,11 @@ def query(query: str):
         ))[:300] + "...<br>"
         
         # // Add data to html response string
-        response_str += (
-            f"""
-            <div style="margin-right: 50vw; margin-left: 20px;">
-                <a style="font-size: 20px;" href="{resource_url}">
-                    {data_provider_name}: {resource_title}
-                </a>
-                <br>
-                <mark style="color: green; background: none;">
-                    {resource_url}
-                </mark>
-                <br>
-                {resource_description}
-                <br>
-            </div>
-            """
+        response_str += html.wrap(
+            f"{data_provider_name}: {resource_title}",
+            resource_description,
+            resource_url,
         )
+    
+    # // Return the response string
     return response_str
