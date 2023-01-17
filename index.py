@@ -11,7 +11,7 @@
 # // Import the required modules
 from flask import Flask, request
 from cache import Cache
-import scraper, threading
+import scraper, threading, dpla, springer
 
 # // Initialize the flask app
 app = Flask(__name__)
@@ -49,6 +49,12 @@ def query():
     # // Request a new query
     def get_new_query():
         response_str = response_header
+
+        # // Query DPLA
+        response_str += dpla.query(query)
+
+        # // Query Springer
+        response_str += springer.query(query)
 
         # // Loop over pages
         for i in range(0, 2):
