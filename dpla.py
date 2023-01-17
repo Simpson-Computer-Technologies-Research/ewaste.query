@@ -17,19 +17,17 @@ def query(query: str):
         data_provider_name: str = doc["dataProvider"]["name"]
         resource_url: str = doc["isShownAt"]
 
-        if "originalRecord" not in doc:
-            continue
-            
-        if "stringValue" not in doc["originalRecord"]:
+        # // Get the title from the api response
+        resource_title: str = doc["sourceResource"]["title"][0]
+
+        # // Get the description from the api response
+        if "description" not in doc["sourceResource"]:
             continue
 
-        resource_title: str = doc["sourceResource"]["title"][0]
-        source = doc["sourceResource"]
-        if "description" not in source:
-            continue
-        resource_description: str = "".join(
-            f"{desc}<br>" for desc in source["description"]
-        )
+        # // Join the description list into a string
+        resource_description: str = ("".join(
+            f"{desc}<br>" for desc in doc["sourceResource"]["description"]
+        ))[:300] + "...<br>"
         
         # // Add data to html response string
         response_str += (
