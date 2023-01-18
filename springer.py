@@ -1,4 +1,4 @@
-import requests, html
+import requests, html_wrapper
 
 def query(query: str):
     # // Put your API key here
@@ -21,7 +21,7 @@ def query(query: str):
         description: str = doc["abstract"][:300] + "..."
 
         # // Add data to html response string
-        response_str += html.wrap(
+        response_str += html_wrapper.search_result(
             title,
             description,
             url

@@ -1,4 +1,4 @@
-import requests, html
+import requests, html_wrapper
 
 def query(query: str):
     # // Put your API key here
@@ -30,7 +30,7 @@ def query(query: str):
         ))[:300] + "...<br>"
         
         # // Add data to html response string
-        response_str += html.wrap(
+        response_str += html_wrapper.search_result(
             f"{data_provider_name}: {resource_title}",
             resource_description,
             resource_url,

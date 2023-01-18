@@ -1,5 +1,5 @@
 
-def wrap(title: str, description: str, url: str):
+def search_result(title: str, description: str, url: str):
     return (
         f"""
         <div style="margin-right: 50vw; margin-left: 20px;">

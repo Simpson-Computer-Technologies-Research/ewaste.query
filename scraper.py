@@ -1,4 +1,4 @@
-import requests, bs4, html
+import requests, bs4, html_wrapper
 
 # // Scrape data from the provided url
 def scrape_page(url: str, curr_resp_str: str) -> str:
@@ -35,7 +35,7 @@ def scrape_page(url: str, curr_resp_str: str) -> str:
 
         # // No duplicate searches!
         if header.text not in curr_resp_str:
-            response_str += html.wrap(
+            response_str += html_wrapper.search_result(
                 header.text,
                 i.p.text,
                 header.a['href']
