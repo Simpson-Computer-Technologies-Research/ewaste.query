@@ -1,4 +1,4 @@
-# ewaste.query ![Stars](https://img.shields.io/github/stars/realTristan/ewaste.query?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/ewaste.query?label=Watchers)
+# ewaste.query ![Stars](https://img.shields.io/github/stars/Simpson-Computer-Technologies-Research/ewaste.query?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/Simpson-Computer-Technologies-Research/ewaste.query?label=Watchers)
 ![ewaste](https://user-images.githubusercontent.com/75189508/212191366-b2c5e17d-b229-488e-8047-698dfb5b3521.png)
 
 ewaste.query is a mini search engine made with flask and bs4
